@@ -20,6 +20,7 @@ const documentObserver = new MutationObserver(function(mutations1) {
 
       circleTweetNodeList.forEach(node => {
         node.setAttribute('style', "background-color: #defaf1;")
+        node.setAttribute("data-circle", "true")
       })
 
     })
