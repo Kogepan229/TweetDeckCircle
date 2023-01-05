@@ -1,4 +1,4 @@
-// in content.js
+// content.js
 
 let CircleTweetList = []
 
@@ -61,33 +61,10 @@ observer.observe(dataHolder, {
   attributes: true
 });
 
-const injectedScript =
-  "(" +
-  function() {
-    // define monkey patch function
-    const monkeyPatch = () => {
-      let oldXHROpen = window.XMLHttpRequest.prototype.open;
-      window.XMLHttpRequest.prototype.open = function(method, url) {
-        // tweet data
-        if (url.indexOf("https://api.twitter.com/1.1/statuses/home_timeline.json") == 0) {
-          this.addEventListener("load", function() {
-            let responseBody = this.responseText;
-            document.getElementById('TweetDeckCircleDataHolder').setAttribute('data-response', responseBody)
-          });
-        }
-
-        return oldXHROpen.apply(this, arguments);
-      };
-    };
-    monkeyPatch();
-  } +
-  ")();";
-
-const injectScript = () => {
-  let script = document.createElement("script");
-  script.textContent = injectedScript;
-  (document.head || document.documentElement).appendChild(script);
-  script.remove();
+// inject
+var s = document.createElement('script');
+s.src = chrome.runtime.getURL('injected.js');
+s.onload = function() {
+  this.remove();
 };
-
-injectScript()
+(document.head || document.documentElement).appendChild(s);
