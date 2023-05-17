@@ -1,12 +1,16 @@
 # TweetDeckCircle
+
 ## 概要
-TweetDeckでサークルツイートを識別するためのChrome拡張機能
+
+TweetDeck でサークルツイートを識別するための Chrome 拡張機能・CustomJS
 
 ## 色の変更
-カスタムCSSで以下のように設定することで色を変更することができます
-(any-colorの部分に任意の色を記述)
+
+カスタム CSS で以下のように設定することで色を変更することができます
+(any-color の部分に任意の色を記述)
+
 ```css
-article[data-circle="true"]{
-    background-color: any-color !important;
+article[data-circle="true"] {
+  background-color: any-color !important;
 }
 ```
