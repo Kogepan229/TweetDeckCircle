@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TweetDeckCircle
 // @namespace    http://kogepan.net/
-// @version      0.1
-// @description  try to take over the world!
+// @version      1.0
+// @description  CustomJS to identify Circle Tweets in TweetDeck
 // @author       Kogepan229
 // @match        https://tweetdeck.twitter.com/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=twitter.com
@@ -72,5 +72,4 @@ function setObserver() {
   'use strict'
   injectXHR()
   setObserver()
-  // Your code here...
 })()
